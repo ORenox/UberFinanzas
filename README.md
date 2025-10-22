@@ -1,6 +1,10 @@
 # 🚗 **Uber Financial App**
 
-![App Screenshot](assets/screenshot.png)
+<p align="center">
+  <img src="assets/card1.png" alt="Card 1" width="200" style="margin-right:60px;"/>
+  <img src="assets/card2.png" alt="Card 2" width="200" style="margin-right:60px;"/>
+  <img src="assets/table1.png" alt="Table 1" width="200"/>
+</p>
 
 **Uber Financial App** is designed to keep track of the **incomes and outcomes** of a person who works as an **Uber driver**.  
 Its main goal is to provide a simple way to **register, visualize, and analyze** daily and monthly financial activity.
@@ -25,6 +29,11 @@ The application is composed of **two main composable elements**:
 ---
 
 ## 🖥️ **Backend Overview**
+
+<p align="center">
+  <img src="assets/data2.png" alt="data2" width="500" style="margin-right:60px;"/>
+</p>
+
 
 The backend is built using **Google Apps Script**, which interacts with a **Google Spreadsheet** to store and retrieve data through HTTP requests (`GET` and `POST`).
 
