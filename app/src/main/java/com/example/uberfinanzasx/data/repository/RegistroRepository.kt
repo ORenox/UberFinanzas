@@ -15,6 +15,10 @@ class RegistroRepository {
 
         ApiService.enviarRegistro(tipo, descripcion, monto, comentario, callback)
     }
+
+    fun obtenerRegistrosDia(callback: (Boolean, List<List<String>>) -> Unit) {
+        ApiService.obtenerRegistrosDia(callback)
+    }
 }
 
 

@@ -106,7 +106,7 @@ fun RegistroItem(
                                 descripcionSeleccionada!!,
                                 comentario.ifEmpty { null }
                             )
-                           Toast.makeText(context,"Guardando...",Toast.LENGTH_SHORT).show()
+                            
 
                         }
                     }

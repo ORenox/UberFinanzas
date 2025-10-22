@@ -13,8 +13,10 @@ import androidx.compose.ui.unit.dp
 import com.example.uberfinanzasx.ui.components.RegistroItem
 import com.example.uberfinanzasx.data.model.Registro
 import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalContext
 import com.example.uberfinanzasx.data.repository.RegistroRepository
+import com.example.uberfinanzasx.ui.components.DataTable
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -26,6 +28,10 @@ fun MainScreen() {
     val repo = RegistroRepository()
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope() // ✅ scope para lanzar corrutinas
+
+    //variables para la tabla
+    var registros by remember { mutableStateOf<List<List<String>>>(emptyList()) }
+    var isLoading by remember { mutableStateOf(true) }
 
     Scaffold (
         topBar = {
@@ -92,7 +98,26 @@ fun MainScreen() {
             }
 
         )
-            // Aquí podrías mostrar los totales o un resumen
+        //Tabla de registers del día
+        LaunchedEffect(Unit) {
+            repo.obtenerRegistrosDia { success, data ->
+                registros = data
+                isLoading = false
+            }
+        }
+
+        if (isLoading) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
+        } else {
+            DataTable(
+                headers = listOf("Fecha", "Tipo", "Descripción", "Monto", "Comentario"),
+                data = registros
+            )
+        }
+
+
         }
     }
 
