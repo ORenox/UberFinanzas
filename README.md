@@ -43,7 +43,7 @@ The backend is built using **Google Apps Script**, which interacts with a **Goog
 
 ```javascript
 function doGet(e) {
-  const ss = SpreadsheetApp.openById("19X2P6bPSRN29pEdJCXs_ODOiOWvEU1gnoSAEt6zE7zE");
+  const ss = SpreadsheetApp.openById("19X2P6bPSRN29pEdJCXs_ODOiOWvEUzE7zE");
   const sheet = ss.getSheetByName("valores");
   const data = sheet.getDataRange().getValues();
   const mode = e && e.parameter.mode ? e.parameter.mode : 'all';
@@ -122,7 +122,7 @@ function createResponse(message, data, extra = {}) {
 // 🔹 Handles POST requests to store data
 function doPost(e) {
   try {
-    var ss = SpreadsheetApp.openById("19X2P6bPSRN29pEdJCXs_ODOiOWvEU1gnoSAEt6zE7zE");
+    var ss = SpreadsheetApp.openById("19X2P6bPSRN29pEdJCXs_ODOiOWvt6zE7zE");
     var sheet = ss.getSheetByName("valores");
 
     if (!e || !e.postData || !e.postData.contents) {
